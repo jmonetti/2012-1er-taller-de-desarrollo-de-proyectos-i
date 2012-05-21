@@ -3,7 +3,7 @@
     <string name="app_name">Seguridad</string>
     <string name="emergency">Emergency</string>
     <string name="sending_emergency_call">Enviando Llamado de Emergencia</string>
-    <string name="emergency_server_url">http://192.168.0.13/urban-security/</string>
+    <string name="emergency_server_url">http://seguridad-jfacorro.dotcloud.com/index.php</string>
     <string name="help">Ayuda</string>
     <string name="settings">Configuración</string>
 
