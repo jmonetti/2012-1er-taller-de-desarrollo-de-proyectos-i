@@ -42,14 +42,15 @@ public class LocationNotificator implements LocationListener {
 	}
 
 	public void onLocationChanged(Location location) {
+		// TODO: verificar que la ubicación no es igual
+		// que la última informada.
 		this.currentLocation = location;
 
+		// TODO: verificar el resultado del envío de la ubicación
 		this.sendEmergencyData(this.currentLocation);
-
-		String msg = "Lat:" + location.getLatitude();
-		msg += " - Long:" + location.getLongitude();
-		msg += " - Acc:" + location.getAccuracy();
-		Toast.makeText(this.context, msg, Toast.LENGTH_SHORT).show();
+		
+		String msg = this.context.getString(R.string.emergency_signal_sent);
+		Toast.makeText(this.context, msg, Toast.LENGTH_SHORT).show();		
 	}
 
 	public void onProviderDisabled(String provider) {
