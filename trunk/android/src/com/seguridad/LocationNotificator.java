@@ -1,6 +1,9 @@
 package com.seguridad;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,8 +36,9 @@ public class LocationNotificator implements LocationListener {
 
 	public LocationNotificator(Context context) {
 		this.context = context;
-		TelephonyManager telephonyManager =(TelephonyManager)this.context.getSystemService(Context.TELEPHONY_SERVICE);
-		phoneNumber = telephonyManager.getLine1Number();
+		TelephonyManager telephonyManager = (TelephonyManager) this.context
+				.getSystemService(Context.TELEPHONY_SERVICE);
+		phoneNumber = telephonyManager.getDeviceId();
 	}
 
 	public void onLocationChanged(Location location) {
@@ -82,16 +86,42 @@ public class LocationNotificator implements LocationListener {
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 			nameValuePairs.add(new BasicNameValuePair("data", json.toString()));
 			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-			
+
 			httpClient.execute(httpPost);
 
 			// Execute HTTP Post Request
-			//HttpResponse response = httpClient.execute(httpPost);
+			// HttpResponse response = httpClient.execute(httpPost);
 
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * Verifies if the emergency server is active
+	 * @return 
+	 */
+	public boolean checkServerAlive() {
+		try {
+			URL url = new URL(
+					this.context.getString(R.string.emergency_server_url));
+
+			HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
+			urlc.setRequestProperty("User-Agent", "Android Application");
+			urlc.setRequestProperty("Connection", "close");
+			urlc.setConnectTimeout(1000 * 30);
+			urlc.connect();
+			if (urlc.getResponseCode() == 200) {
+				return true;
+			}
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return false;
 	}
 }
