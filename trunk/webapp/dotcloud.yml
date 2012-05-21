@@ -1,0 +1,6 @@
+www:
+  type: php
+  requirements:
+     - mongo-1.2.7 
+data:
+  type: mongodb
