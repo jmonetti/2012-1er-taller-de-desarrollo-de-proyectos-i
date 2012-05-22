@@ -1,7 +1,7 @@
 var mapHandler = {
 	map : null,
 	markers : [],
-	initialize : function() {
+	init : function() {
 		var myOptions = {
 			center: new google.maps.LatLng(-34.54523, -58.4710496),
 			zoom: 11,
@@ -21,9 +21,29 @@ var mapHandler = {
 			map: mapHandler.map,
 			icon: image
 		});
+	},
+	getAddress : function (lat, lng, element) {
+		var geo = new google.maps.Geocoder();
+		var req = { location : new google.maps.LatLng(lat, lng)};
+		geo.geocode(req, function(results, status) {
+			mapHandler.handleAddressResults(results, status, element);
+		});
+	},
+	handleAddressResults : function(results, status, element) {
+		if(status == 'OK') {
+			element.html(mapHandler.getPrettyAddress(results[0]));
+		}
+		else {
+			element.html('Address not found.');
+		}
+	},
+	getPrettyAddress : function (result) {
+		var address = '';
+		var $components = $(result.address_components);
+		$components.each(function() {
+			address = $(this).prop('long_name') + ', ' + address; 
+		});
+
+		return address;
 	}
 };
-
-$(function(){
-	mapHandler.initialize();
-});

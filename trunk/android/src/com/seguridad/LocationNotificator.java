@@ -17,12 +17,9 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
-import android.widget.Toast;
 
 /*
  * Gets the location updates and sends them 
@@ -31,26 +28,23 @@ import android.widget.Toast;
 public class LocationNotificator implements LocationListener {
 
 	private String phoneNumber;
-	private Context context;
+	private EmergencyActivator context;
 	private Location currentLocation;
 
-	public LocationNotificator(Context context) {
+	public LocationNotificator(EmergencyActivator context, String phoneNumber) {
 		this.context = context;
-		TelephonyManager telephonyManager = (TelephonyManager) this.context
-				.getSystemService(Context.TELEPHONY_SERVICE);
-		phoneNumber = telephonyManager.getDeviceId();
+
+		this.phoneNumber = phoneNumber;
 	}
 
 	public void onLocationChanged(Location location) {
-		// TODO: verificar que la ubicación no es igual
-		// que la última informada.
-		this.currentLocation = location;
+		if (!this.currentLocation.equals(location)) {
+			this.currentLocation = location;
 
-		// TODO: verificar el resultado del envío de la ubicación
-		this.sendEmergencyData(this.currentLocation);
-		
-		String msg = this.context.getString(R.string.emergency_signal_sent);
-		Toast.makeText(this.context, msg, Toast.LENGTH_SHORT).show();		
+			if (this.sendEmergencyData(this.currentLocation)) {
+				this.context.sentEmergencyCall();
+			}
+		}
 	}
 
 	public void onProviderDisabled(String provider) {
@@ -68,16 +62,20 @@ public class LocationNotificator implements LocationListener {
 
 	}
 
-	private void sendEmergencyData(Location location) {
+	/**
+	 * Sends an emergency signal to the server
+	 * @param location
+	 * @return true if the signal was sent successfully, false otherwise.
+	 */
+	private boolean sendEmergencyData(Location location) {
 		HttpClient httpClient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost(
-				this.context.getString(R.string.emergency_server_url));
+		HttpPost httpPost = new HttpPost(this.context.getEmergencyServerUrl());
 
 		JSONObject json = new JSONObject();
 		try {
 			json.put("number", this.phoneNumber);
 			json.put("lat", Double.toString(location.getLatitude()));
-			json.put("long", Double.toString(location.getLongitude()));
+			json.put("lng", Double.toString(location.getLongitude()));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -88,26 +86,29 @@ public class LocationNotificator implements LocationListener {
 			nameValuePairs.add(new BasicNameValuePair("data", json.toString()));
 			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-			httpClient.execute(httpPost);
-
 			// Execute HTTP Post Request
 			// HttpResponse response = httpClient.execute(httpPost);
 
+			// TODO: verificar el response code
+			httpClient.execute(httpPost);
+
+			return true;
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		return false;
 	}
 
 	/**
 	 * Verifies if the emergency server is active
-	 * @return 
+	 * @return
 	 */
 	public boolean checkServerAlive() {
 		try {
-			URL url = new URL(
-					this.context.getString(R.string.emergency_server_url));
+			URL url = new URL(this.context.getEmergencyServerUrl());
 
 			HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
 			urlc.setRequestProperty("User-Agent", "Android Application");
