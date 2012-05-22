@@ -15,7 +15,7 @@ var mapHandler = {
 	},
 	addMarker : function (location) {
 		var image = 'images/alert.png';
-		var myLatLng = new google.maps.LatLng(location.lat, location.long);
+		var myLatLng = new google.maps.LatLng(location.lat, location.lng);
 		var beachMarker = new google.maps.Marker({
 			position: myLatLng,
 			map: mapHandler.map,

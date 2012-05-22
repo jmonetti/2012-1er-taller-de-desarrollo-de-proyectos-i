@@ -23,8 +23,6 @@
 			echo 'Adding...';
 			$lat = $_REQUEST["txtLat"];
 			$long = $_REQUEST["txtLong"];
-			$gc = new GeoCoding();
-			echo $gc->get_address($lat, $long);
 			$location = array('lat' => $lat, 'lng' => $long);
 			echo json_encode($location);
 			$db->emergencies->insert($location);
