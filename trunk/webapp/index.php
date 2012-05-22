@@ -1,6 +1,7 @@
 <?php
-	$dbconn = "mongodb://root:JZrDH8OLFGoAhEkJSig3@seguridad-jfacorro-db-0.dotcloud.com:24854";
+	$dbconn = "mongodb://root:JZrDH8OLFGoAhEkJSig3@seguridad-jfacorro-db-0.dotcloud.com:24854";	
 	$mongo = new Mongo($dbconn);
+	//$mongo = new Mongo();
 	$db = $mongo->urban_security;
 ?>
 <html>
@@ -14,17 +15,15 @@
 		<script type="text/javascript" src="js/maps.js"></script>
 	</head>
 	<body>
-		<div style="float:left">
+		<div style="float:right">
 		<?php
 			$cursor = $db->emergencies->find();
 			// iterate through the results
 			if($cursor)
 			{
 				foreach ($cursor as $obj) {
-					foreach ($obj as $value)
-					{
-						echo $value . "<br>";
-					}
+					echo '('.$obj["lat"].':'.$obj["long"].")<br>";
+
 					$location = "{'lat':" . $obj["lat"] . ", 'long':".$obj["long"]."}";
 					?>
 					<script type="text/javascript">
@@ -35,7 +34,7 @@
 			}
 		?>
 		</div>
-		<div id="map_canvas" style="width:700px; height:500px; float:right;"></div>
+		<div id="map_canvas" style="width:700px; height:500px; float:left;"></div>
 		<?php
 			if(array_key_exists("data", $_REQUEST))
 			{
@@ -44,10 +43,6 @@
 				$data = json_decode ($json, true);
 				var_dump($data);
 				$db->emergencies->insert($data);
-			}
-			else
-			{
-				echo "No data";
 			}
 		?>
 	</body>
