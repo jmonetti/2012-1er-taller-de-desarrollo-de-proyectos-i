@@ -1,5 +1,6 @@
 <?php
-	//$dbconn = "mongodb://root:JZrDH8OLFGoAhEkJSig3@seguridad-jfacorro-db-0.dotcloud.com:24854";	
+	include_once('./includes/GeoCoding.php');
+	//$dbconn = "mongodb://root:JZrDH8OLFGoAhEkJSig3@seguridad-jfacorro-db-0.dotcloud.com:24854";
 	//$mongo = new Mongo($dbconn);
 	$mongo = new Mongo();
 	$db = $mongo->urban_security;
@@ -22,7 +23,9 @@
 			echo 'Adding...';
 			$lat = $_REQUEST["txtLat"];
 			$long = $_REQUEST["txtLong"];
-			$location = array('lat' => $lat, 'long' => $long);
+			$gc = new GeoCoding();
+			echo $gc->get_address($lat, $long);
+			$location = array('lat' => $lat, 'lng' => $long);
 			echo json_encode($location);
 			$db->emergencies->insert($location);
 		break;
@@ -36,8 +39,8 @@
 			src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAJ-lN0BVnxuQ06N3YUyFS_iUA8kuoFYVI&sensor=false">
 		</script>
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
 		<script type="text/javascript" src="js/maps.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 
 		<link href="css/default.css"  type="text/css" rel="Stylesheet" />
 	</head>
@@ -54,14 +57,16 @@
 				</div>
 			<div>
 			<div>
+				<h2>Current Emergencies</h2>
 			<?php
 				$cursor = $db->emergencies->find();
 				// iterate through the results
 				if($cursor) {
 					$markers = '';
 					foreach ($cursor as $obj) {
-						echo '('.$obj["lat"].':'.$obj["long"].")<br>";
-						echo json_encode($obj).'<br/>';
+						?>
+						<location lat="<?php echo $obj['lat']; ?>" lng="<?php echo $obj['lng'] ?>"></location><br />
+						<?
 						$markers .= 'mapHandler.markers.push('.json_encode($obj).');';
 					}
 					?>
