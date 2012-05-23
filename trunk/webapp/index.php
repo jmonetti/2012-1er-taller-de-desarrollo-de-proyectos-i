@@ -1,8 +1,8 @@
 <?php
 	include_once('./includes/GeoCoding.php');
-	//$dbconn = "mongodb://root:JZrDH8OLFGoAhEkJSig3@seguridad-jfacorro-db-0.dotcloud.com:24854";
-	//$mongo = new Mongo($dbconn);
-	$mongo = new Mongo();
+	$dbconn = "mongodb://root:JZrDH8OLFGoAhEkJSig3@seguridad-jfacorro-db-0.dotcloud.com:24854";
+	$mongo = new Mongo($dbconn);
+	//$mongo = new Mongo();
 	$db = $mongo->urban_security;
 
 	if(array_key_exists("data", $_REQUEST)) {
@@ -12,22 +12,25 @@
 		$db->emergencies->insert($data);
 	}
 	
-	$action = $_REQUEST["action"];
-	
-	switch ($action) {
-		case 'reset':
-			echo 'Droppin...';
-			$db->emergencies->drop();
-		break;
-		case 'add':
-			echo 'Adding...';
-			$lat = $_REQUEST["txtLat"];
-			$long = $_REQUEST["txtLong"];
-			$location = array('lat' => $lat, 'lng' => $long);
-			echo json_encode($location);
-			$db->emergencies->insert($location);
-		break;
+	if(isset($_REQUEST["action"])) {
+		$action = $_REQUEST["action"];
+
+		switch ($action) {
+			case 'reset':
+				echo 'Droppin...';
+				$db->emergencies->drop();
+			break;
+			case 'add':
+				echo 'Adding...';
+				$lat = $_REQUEST["txtLat"];
+				$long = $_REQUEST["txtLong"];
+				$location = array('lat' => $lat, 'lng' => $long);
+				echo json_encode($location);
+				$db->emergencies->insert($location);
+			break;
+		}
 	}
+	
 ?>
 <html>
 	<head>
@@ -47,6 +50,7 @@
 			<input type="hidden" id="action" name="action" />
 			<div id="map_canvas" style="width:700px; height:500px"></div>
 			<div>
+				<input type="button" value="Refresh" action="refresh" /><br />
 				<input type="button" name="btnReset" value="Reset all" action="reset" />
 				<div>
 					Lat <input type="text" name="txtLat" value="" />
@@ -64,7 +68,7 @@
 					foreach ($cursor as $obj) {
 						?>
 						<location lat="<?php echo $obj['lat']; ?>" lng="<?php echo $obj['lng'] ?>"></location><br />
-						<?
+						<?php
 						$markers .= 'mapHandler.markers.push('.json_encode($obj).');';
 					}
 					?>
