@@ -71,7 +71,7 @@ public class MainActivity extends Activity implements EmergencyActivator {
 		this.locationManager.removeUpdates(this.locationNotificator);
 
 		this.btnEmergency.clearAnimation();
-
+		this.btnEmergency.setClickable(true);
 	}
 
 	public String getEmergencyServerUrl() {

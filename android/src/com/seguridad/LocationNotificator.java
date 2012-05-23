@@ -38,7 +38,7 @@ public class LocationNotificator implements LocationListener {
 	}
 
 	public void onLocationChanged(Location location) {
-		if (!this.currentLocation.equals(location)) {
+		if (!location.equals(this.currentLocation)) {
 			this.currentLocation = location;
 
 			if (this.sendEmergencyData(this.currentLocation)) {
