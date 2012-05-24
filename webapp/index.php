@@ -1,8 +1,8 @@
 <?php
 	include_once('./includes/GeoCoding.php');
 	$dbconn = "mongodb://root:JZrDH8OLFGoAhEkJSig3@seguridad-jfacorro-db-0.dotcloud.com:24854";
-	//$mongo = new Mongo($dbconn);
-	$mongo = new Mongo();
+	$mongo = new Mongo($dbconn);
+	//$mongo = new Mongo();
 	$db = $mongo->urban_security;
 
 	if(array_key_exists("data", $_REQUEST)) {
