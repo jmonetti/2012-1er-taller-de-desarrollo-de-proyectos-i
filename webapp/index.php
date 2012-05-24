@@ -1,8 +1,8 @@
 <?php
 	include_once('./includes/GeoCoding.php');
 	$dbconn = "mongodb://root:JZrDH8OLFGoAhEkJSig3@seguridad-jfacorro-db-0.dotcloud.com:24854";
-	$mongo = new Mongo($dbconn);
-	//$mongo = new Mongo();
+	//$mongo = new Mongo($dbconn);
+	$mongo = new Mongo();
 	$db = $mongo->urban_security;
 
 	if(array_key_exists("data", $_REQUEST)) {
@@ -35,7 +35,7 @@
 <html>
 	<head>
 		<meta http-equiv="cache-control" content="no-cache">
-		<title>Urban-Security</title>
+		<title>Seguridad</title>
 		<script type="text/javascript" 
 			src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAJ-lN0BVnxuQ06N3YUyFS_iUA8kuoFYVI&sensor=false">
 		</script>
@@ -66,8 +66,14 @@
 				if($cursor) {
 					$markers = '';
 					foreach ($cursor as $obj) {
+						$num = '('.$obj['lat'].', '.$obj['lng'].')';
+						if(isset($obj['number']))
+							$num .= $obj['number'];
+						$num .= ':'; 
 						?>
-						<location lat="<?php echo $obj['lat']; ?>" lng="<?php echo $obj['lng'] ?>"></location><br />
+						<location lat="<?php echo $obj['lat']; ?>" lng="<?php echo $obj['lng'] ?>">
+							<?php echo $num; ?>
+						</location><br />
 						<?php
 						$markers .= 'mapHandler.markers.push('.json_encode($obj).');';
 					}

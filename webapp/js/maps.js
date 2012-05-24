@@ -31,10 +31,10 @@ var mapHandler = {
 	},
 	handleAddressResults : function(results, status, element) {
 		if(status == 'OK') {
-			element.html(mapHandler.getPrettyAddress(results[0]));
+			element.html(element.html() + mapHandler.getPrettyAddress(results[0]));
 		}
 		else {
-			element.html('Address not found.');
+			element.html(element.html() + 'Address not found.');
 		}
 	},
 	getPrettyAddress : function (result) {
