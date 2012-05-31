@@ -86,7 +86,7 @@
     <control controlID="36" controlTypeID="com.balsamiq.mockups::TextArea" x="899" y="548" w="258" h="52" measuredW="200" measuredH="140" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <borderColor>16777215</borderColor>
-        <text>Accedo%20a%20la%20pantalla%20de%20configuraci%F3n%20de%20Destinatario</text>
+        <text>Aviso%20de%20envio%20exitoso</text>
       </controlProperties>
     </control>
     <control controlID="41" controlTypeID="__group__" x="426" y="33" w="400" h="510" measuredW="400" measuredH="510" zOrder="7" locked="false" isInGroup="-1">
