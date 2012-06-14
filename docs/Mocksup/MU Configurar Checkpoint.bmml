@@ -1,0 +1,221 @@
+<mockup version="1.0" skin="sketch" measuredW="1597" measuredH="600" mockupW="1547" mockupH="582">
+  <controls>
+    <control controlID="12" controlTypeID="__group__" x="50" y="28" w="400" h="510" measuredW="400" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::RoundButton" x="164" y="168" w="60" h="53" measuredW="32" measuredH="32" zOrder="0" locked="false" isInGroup="12">
+          <controlProperties>
+            <backgroundAlpha>1</backgroundAlpha>
+            <borderColor>0</borderColor>
+            <color>10027008</color>
+            <size>60</size>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="__group__" x="0" y="0" w="400" h="510" measuredW="400" measuredH="510" zOrder="1" locked="false" isInGroup="12">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="0" y="0" w="400" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="3">
+              <controlProperties>
+                <bgPattern>topBlackBottom</bgPattern>
+                <bgTransparent>true</bgTransparent>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="101" y="388" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="3">
+              <controlProperties>
+                <borderStyle>square</borderStyle>
+                <color>15658734</color>
+                <icon>UpFillTriangleIcon%7Cmedium</icon>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="30" controlTypeID="__group__" x="797" y="18" w="425" h="510" measuredW="425" measuredH="510" zOrder="1" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="1" controlTypeID="__group__" x="111" y="150" w="225" h="230" measuredW="225" measuredH="230" zOrder="0" locked="false" isInGroup="30">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="0" y="0" w="225" h="230" measuredW="163" measuredH="100" zOrder="0" locked="false" isInGroup="1">
+              <controlProperties>
+                <color>14540253</color>
+                <selectedIndex>0</selectedIndex>
+                <text>Lugar%2C%20Hora</text>
+                <verticalScrollbar>true</verticalScrollbar>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::TextArea" x="10" y="98" w="200" h="78" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="1">
+              <controlProperties>
+                <text>FIUBA%0ACasa%0AMiserere%0AShopping%20DOT</text>
+              </controlProperties>
+            </control>
+            <control controlID="2" controlTypeID="__group__" x="25" y="182" w="133" h="27" measuredW="133" measuredH="27" zOrder="2" locked="false" isInGroup="1">
+              <groupChildrenDescriptors>
+                <control controlID="0" controlTypeID="com.balsamiq.mockups::TextInput" x="0" y="0" w="59" h="-1" measuredW="61" measuredH="27" zOrder="0" locked="false" isInGroup="2">
+                  <controlProperties>
+                    <text>Agregar</text>
+                  </controlProperties>
+                </control>
+                <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="74" y="0" w="59" h="-1" measuredW="56" measuredH="27" zOrder="1" locked="false" isInGroup="2">
+                  <controlProperties>
+                    <text>Eliminar</text>
+                  </controlProperties>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+            <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="10" y="37" w="183" h="-1" measuredW="92" measuredH="27" zOrder="3" locked="false" isInGroup="1">
+              <controlProperties>
+                <text>Lugar%20elegido</text>
+              </controlProperties>
+            </control>
+            <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="12" y="71" w="-1" h="-1" measuredW="57" measuredH="21" zOrder="4" locked="false" isInGroup="1">
+              <controlProperties>
+                <text>Lugares%3A</text>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="3" controlTypeID="__group__" x="0" y="0" w="425" h="510" measuredW="425" measuredH="510" zOrder="1" locked="false" isInGroup="30">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="25" y="0" w="400" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="3">
+              <controlProperties>
+                <bgPattern>topBlueBottom</bgPattern>
+                <bgTransparent>true</bgTransparent>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="0" y="369" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="3">
+              <controlProperties>
+                <borderStyle>square</borderStyle>
+                <color>15658734</color>
+                <icon>UpFillTriangleIcon%7Cmedium</icon>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::TextArea" x="129" y="544" w="258" h="52" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <text>Presiono%20el%20bot%F3n%20de%20menu%20del%20el%20bot%F3n%20de%20p%E1nico%20para%20que%20se%20desplieguen%20las%20opciones</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Arrow" x="395" y="565" w="98" h="10" measuredW="150" measuredH="100" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <leftArrow>false</leftArrow>
+        <rightArrow>true</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::TextArea" x="501" y="548" w="258" h="52" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <text>Selecciono%20la%20Configuraci%F3n%20de%20Checkpoints</text>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Arrow" x="763" y="564" w="98" h="10" measuredW="150" measuredH="100" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <leftArrow>false</leftArrow>
+        <rightArrow>true</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::TextArea" x="899" y="533" w="258" h="67" measuredW="200" measuredH="140" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <text>Accedo%20a%20la%20pantalla%20de%20checkpoints%20y%20selecciono%20la%20pesta%F1a%20de%20Lugar.%20Se%20pueden%20reutilizar%20los%20lugares.</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Arrow" x="1159" y="560" w="98" h="10" measuredW="150" measuredH="100" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <leftArrow>false</leftArrow>
+        <rightArrow>true</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::TextArea" x="1277" y="544" w="258" h="52" measuredW="200" measuredH="140" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <text>Accedo%20a%20la%20pantalla%20de%20Agregar%20nuevo%20lugar%2C%20selecciono%20un%20punto%20en%20el%20mapa%20y%20le%20asigno%20un%20nombre.</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="__group__" x="432" y="23" w="400" h="510" measuredW="400" measuredH="510" zOrder="9" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="__group__" x="0" y="0" w="400" h="510" measuredW="400" measuredH="510" zOrder="0" locked="false" isInGroup="41">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="85" y="194" w="230" h="-1" measuredW="215" measuredH="186" zOrder="0" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>-%20Borrar%20acceso%20directo%0AConfiguraci%F3n%20se%F1al%20de%20emergencia%0AConfiguracion%20Checkpoints%0AConfiguracion%20general%0AOn%20button%2C%20ON%0AOff%20button%2C%20OFF</text>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="__group__" x="0" y="0" w="400" h="510" measuredW="400" measuredH="510" zOrder="1" locked="false" isInGroup="0">
+              <groupChildrenDescriptors>
+                <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="0" y="0" w="400" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <bgPattern>topBlackBottom</bgPattern>
+                    <bgTransparent>true</bgTransparent>
+                  </controlProperties>
+                </control>
+                <control controlID="1" controlTypeID="com.balsamiq.mockups::RoundButton" x="164" y="145" w="60" h="53" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <backgroundAlpha>1</backgroundAlpha>
+                    <borderColor>0</borderColor>
+                    <color>10027008</color>
+                    <size>60</size>
+                    <text/>
+                  </controlProperties>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="96" y="392" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="41">
+          <controlProperties>
+            <borderStyle>square</borderStyle>
+            <color>15658734</color>
+            <icon>UpFillTriangleIcon%7Cmedium</icon>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="43" controlTypeID="__group__" x="1197" y="28" w="400" h="510" measuredW="400" measuredH="510" zOrder="10" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="__group__" x="0" y="0" w="400" h="510" measuredW="400" measuredH="510" zOrder="0" locked="false" isInGroup="43">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="0" y="0" w="400" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="0">
+              <controlProperties>
+                <bgPattern>topBlackBottom</bgPattern>
+                <bgTransparent>true</bgTransparent>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="__group__" x="98" y="152" w="200" h="221" measuredW="200" measuredH="221" zOrder="1" locked="false" isInGroup="0">
+              <groupChildrenDescriptors>
+                <control controlID="1" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="200" h="28" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <italic>true</italic>
+                    <text>Nombre%20Lugar</text>
+                  </controlProperties>
+                </control>
+                <control controlID="2" controlTypeID="__group__" x="63" y="194" w="59" h="27" measuredW="59" measuredH="27" zOrder="1" locked="false" isInGroup="1">
+                  <groupChildrenDescriptors>
+                    <control controlID="0" controlTypeID="com.balsamiq.mockups::TextInput" x="0" y="0" w="59" h="-1" measuredW="59" measuredH="27" zOrder="0" locked="false" isInGroup="2">
+                      <controlProperties>
+                        <text>Guardar</text>
+                      </controlProperties>
+                    </control>
+                  </groupChildrenDescriptors>
+                </control>
+                <control controlID="3" controlTypeID="com.balsamiq.mockups::Map" x="0" y="40" w="200" h="139" measuredW="252" measuredH="222" zOrder="2" locked="false" isInGroup="1"/>
+              </groupChildrenDescriptors>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="98" y="388" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="43">
+          <controlProperties>
+            <borderStyle>square</borderStyle>
+            <color>15658734</color>
+            <icon>UpFillTriangleIcon%7Cmedium</icon>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
