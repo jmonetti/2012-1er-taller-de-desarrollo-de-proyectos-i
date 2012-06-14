@@ -22,6 +22,9 @@ var mapHandler = {
 			icon: image
 		});
 	},
+	/**
+	 * Utilizado para cargar las direcciones desde la página.
+	 */
 	getAddress : function (lat, lng, element) {
 		var geo = new google.maps.Geocoder();
 		var req = { location : new google.maps.LatLng(lat, lng)};

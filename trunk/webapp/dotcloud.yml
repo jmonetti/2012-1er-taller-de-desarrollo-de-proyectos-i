@@ -1,6 +1,7 @@
 www:
   type: php
-  #requirements:
-  #   - mongo-1.2.7 
+  requirements:
+    - pecl_http 
+    - mongo-1.2.7 
 db:
   type: mongodb

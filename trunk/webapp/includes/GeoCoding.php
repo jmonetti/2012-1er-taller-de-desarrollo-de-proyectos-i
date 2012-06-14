@@ -1,14 +1,34 @@
 <?php
 class GeoCoding {
 
-	public function get_address($lat, $long) {
-		$latlong = $lat.','.$long;
+	public static function get_address($lat, $lng) {
+		$latlong = $lat.','.$lng;
 		$url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.$latlong.'&sensor=true';
-		$response = $this->get_url_contents($url);
-		return json_decode($response);
+		$response = GeoCoding::get_url_contents($url);
+
+		$json_response = json_decode($response, true);
+
+		return GeoCoding::buildAddress($json_response);
 	}
 	
-	private function get_url_contents($url) {
+	private static function buildAddress($json_response) {
+		$address = 'NOT FOUND';
+		
+		if($json_response['status'] == 'OK')
+		{
+			$address = '';
+			// Tomar el primer resultado
+			$result = $json_response['results'][0];
+			foreach($result['address_components'] as $component)
+			{
+				$address = $component['long_name'] . ', ' . $address;
+			}
+		}		
+		
+		return $address;
+	}
+
+	private static function get_url_contents($url) {
 		$crl = curl_init();
 		$timeout = 5;
 		curl_setopt ($crl, CURLOPT_URL,$url);

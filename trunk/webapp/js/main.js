@@ -6,13 +6,16 @@ var main = {
 			hidAction.val($(this).attr('action'));
 			form.submit();
 		});
-		main.loadAddresses();
+		main.loadMarkers();
 	},
-	loadAddresses : function() {
-		$('location').each(function(){
+	/**
+	 * Agrega las emergencias actuales en el mapa.
+	 */
+	loadMarkers : function() {
+		$('#emergencies li').each(function(){
 			var lat = $(this).attr('lat');
 			var lng = $(this).attr('lng');
-			mapHandler.getAddress(lat, lng, $(this));
+			mapHandler.markers.push({ "lat" : lat, "lng" : lng });
 		});
 	}
 };
