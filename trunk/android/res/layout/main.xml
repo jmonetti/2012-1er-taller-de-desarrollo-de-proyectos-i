@@ -3,13 +3,15 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-	android:background="@drawable/metal_med">
+	android:background="@drawable/metal_med"
+	android:clipChildren="false">
 
     <ImageButton
+        android:scaleType="fitXY"
         android:id="@+id/btnEmergency"
         android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:src="@drawable/red_button"
         android:contentDescription="@string/emergency"
         android:onClick="sendEmergencyCall"
