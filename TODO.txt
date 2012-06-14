@@ -1,0 +1,19 @@
+Android:
+--------
+- Implementar checkpoints.
+- Enviar SMS si no hay conexión a internet.
+- Selección de contactos de la lista de Contactos del telefono.
+- Agregar GPS como origen de la ubicación del teléfono (Actualmente se están utilizando las redes de WIFI o la telefónica).
+
+Webapp:
+-------
+- Hacer el diseño de una interfaz gráfica.
+- Log-in.
+- Cuando llega una señal de emergencia, validar que no sea de un teléfono que acaba de mandar la señal o si lo es actualizar la ubicación.
+
+Base de Datos:
+--------------
+- Agregar hora y fecha de la emergencia.
+- Coleccion de usuarios.
+- Coleccion de centrales de seguridad.
+- Colección de contactos.

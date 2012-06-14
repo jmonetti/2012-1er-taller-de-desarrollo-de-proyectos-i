@@ -11,6 +11,7 @@ import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -30,6 +31,12 @@ public class MainActivity extends Activity implements EmergencyActivator {
 		setContentView(R.layout.main);
 
 		this.btnEmergency = (ImageButton) this.findViewById(R.id.btnEmergency);
+		this.btnEmergency.setOnLongClickListener(new OnLongClickListener() {
+			public boolean onLongClick(View v) {
+				sendEmergencyCall();
+				return true;
+			}
+		});
 
 		this.resources = new LinkedList<Integer>();
 		this.resources.add(R.drawable.red_button);
@@ -45,7 +52,7 @@ public class MainActivity extends Activity implements EmergencyActivator {
 				this.telephonyManager.getDeviceId());
 	}
 
-	public void sendEmergencyCall(View view) {
+	public void sendEmergencyCall() {
 		Toast.makeText(this, R.string.sending_emergency_call,
 				Toast.LENGTH_SHORT).show();
 
