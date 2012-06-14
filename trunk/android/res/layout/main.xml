@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
 	android:background="@drawable/metal_med"
-	android:clipChildren="false">
+	android:clipChildren="true">
 
     <ImageButton
         android:scaleType="fitXY"
@@ -14,7 +14,6 @@
         android:layout_height="300dp"
         android:src="@drawable/red_button"
         android:contentDescription="@string/emergency"
-        android:onClick="sendEmergencyCall"
         android:background="@android:color/transparent"
         />
 
