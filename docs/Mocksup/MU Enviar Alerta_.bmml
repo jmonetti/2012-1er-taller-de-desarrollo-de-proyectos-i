@@ -60,7 +60,7 @@
     <control controlID="32" controlTypeID="com.balsamiq.mockups::TextArea" x="129" y="544" w="258" h="52" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <borderColor>16777215</borderColor>
-        <text>Presiono%20el%20Panic%20Button%20Para%20enviar%20una%20se%F1al%20de%20emergencia.</text>
+        <text>Mantengo%20presionado%20el%20Panic%20Button%20por%203%20segundos%20para%20enviar%20la%20se%F1al%20de%20emergencia.</text>
       </controlProperties>
     </control>
     <control controlID="33" controlTypeID="com.balsamiq.mockups::Arrow" x="395" y="565" w="98" h="10" measuredW="150" measuredH="100" zOrder="3" locked="false" isInGroup="-1">
@@ -70,7 +70,7 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::TextArea" x="501" y="548" w="258" h="52" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::TextArea" x="559" y="553" w="134" h="52" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <borderColor>16777215</borderColor>
         <text>Confirmo%20el%20envio.</text>
