@@ -1,16 +1,7 @@
 <?php
-	include_once('./includes/GeoCoding.php');
-	$dbconn = "mongodb://root:JZrDH8OLFGoAhEkJSig3@seguridad-jfacorro-db-0.dotcloud.com:24854";
-	$mongo = new Mongo($dbconn);
-	//$mongo = new Mongo();
-	$db = $mongo->urban_security;
+	include_once('includes/EmergenciesDA.php');
 
-	if(array_key_exists("data", $_REQUEST)) {
-		$json = $_REQUEST["data"];
-		echo $json;
-		$data = json_decode ($json, true);
-		$db->emergencies->insert($data);
-	}
+	$dataAccess = new EmergenciesDA();
 	
 	if(isset($_REQUEST["action"])) {
 		$action = $_REQUEST["action"];
@@ -18,7 +9,7 @@
 		switch ($action) {
 			case 'reset':
 				echo 'Droppin...';
-				$db->emergencies->drop();
+				$dataAccess->delete_all();
 			break;
 			case 'add':
 				echo 'Adding...';
@@ -26,7 +17,7 @@
 				$long = $_REQUEST["txtLong"];
 				$location = array('lat' => $lat, 'lng' => $long);
 				echo json_encode($location);
-				$db->emergencies->insert($location);
+				$dataAccess->add($location);
 			break;
 		}
 	}
@@ -57,11 +48,11 @@
 					Long <input type="text" name="txtLong" value="" />
 					<input type="button" name="btnAdd" value="Add" action="add" />
 				</div>
-			<div>
+			</div>
 			<div>
 				<h2>Current Emergencies</h2>
 			<?php
-				$cursor = $db->emergencies->find();
+				$cursor = $dataAccess->get_all();
 				// iterate through the results
 				if($cursor) {
 					$markers = '';
