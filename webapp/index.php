@@ -51,30 +51,26 @@
 			</div>
 			<div>
 				<h2>Current Emergencies</h2>
-			<?php
-				$cursor = $dataAccess->get_all();
-				// iterate through the results
-				if($cursor) {
-					$markers = '';
-					foreach ($cursor as $obj) {
-						$num = '('.$obj['lat'].', '.$obj['lng'].')';
-						if(isset($obj['number']))
-							$num .= $obj['number'];
-						$num .= ':'; 
-						?>
-						<location lat="<?php echo $obj['lat']; ?>" lng="<?php echo $obj['lng'] ?>">
-							<?php echo $num; ?>
-						</location><br />
-						<?php
-						$markers .= 'mapHandler.markers.push('.json_encode($obj).');';
+				<ul id="emergencies">
+				<?php
+					$cursor = $dataAccess->get_all();
+					// iterate through the results
+					if($cursor) {
+						$markers = '';
+						foreach ($cursor as $obj) {
+							$emergency = '('.$obj['lat'].', '.$obj['lng'].')';
+							if(isset($obj['number']))
+								$emergency .= $obj['number'];
+							$emergency .= ': ' . $obj['address'];
+							?>
+							<li lat="<?php echo $obj['lat']; ?>" lng="<?php echo $obj['lng'] ?>">
+								<?php echo $emergency; ?>
+							</li>
+							<?php
+						}
 					}
-					?>
-					<script type="text/javascript">
-						<?php echo $markers; ?>
-					</script>
-					<?php
-				}
-			?>
+				?>
+				</ul>
 			</div>
 		</form>
 	</body>
