@@ -10,6 +10,7 @@ Webapp:
 - Hacer el diseño de una interfaz gráfica.
 - Log-in.
 - Cuando llega una señal de emergencia, validar que no sea de un teléfono que acaba de mandar la señal o si lo es actualizar la ubicación.
+- Corregir el encoding de la dirección que encuentra.
 
 Base de Datos:
 --------------

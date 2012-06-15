@@ -38,13 +38,25 @@ public class LocationNotificator implements LocationListener {
 	}
 
 	public void onLocationChanged(Location location) {
-		if (!location.equals(this.currentLocation)) {
+		System.out.println(location.getProvider());
+		if (this.updateLocation(location)) {
 			this.currentLocation = location;
 
 			if (this.sendEmergencyData(this.currentLocation)) {
 				this.context.sentEmergencyCall();
 			}
 		}
+	}
+
+	private boolean updateLocation(Location location) {
+		if (
+				this.currentLocation == null || 
+				!location.equals(this.currentLocation) || 
+				this.currentLocation.getAccuracy() < location.getAccuracy()
+			)
+				return true;
+
+		return false;
 	}
 
 	public void onProviderDisabled(String provider) {
@@ -64,6 +76,7 @@ public class LocationNotificator implements LocationListener {
 
 	/**
 	 * Sends an emergency signal to the server
+	 * 
 	 * @param location
 	 * @return true if the signal was sent successfully, false otherwise.
 	 */
@@ -104,6 +117,7 @@ public class LocationNotificator implements LocationListener {
 
 	/**
 	 * Verifies if the emergency server is active
+	 * 
 	 * @return
 	 */
 	public boolean checkServerAlive() {

@@ -63,6 +63,10 @@ public class MainActivity extends Activity implements EmergencyActivator {
 		this.locationManager.requestLocationUpdates(
 				LocationManager.NETWORK_PROVIDER, 0, 0,
 				this.locationNotificator);
+		
+		this.locationManager.requestLocationUpdates(
+				LocationManager.GPS_PROVIDER, 0, 0,
+				this.locationNotificator);
 	}
 
 	/**
