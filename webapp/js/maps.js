@@ -7,21 +7,25 @@ var mapHandler = {
 			zoom: 11,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
-		mapHandler.map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-		// cargar todas las posiciones
-		for(index in mapHandler.markers) {
-			mapHandler.addMarker(mapHandler.markers[index]);
-		}
+		this.map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 	},
 	addMarker : function (location) {
 		var image = 'images/alert.png';
 		var myLatLng = new google.maps.LatLng(location.lat, location.lng);
-		var beachMarker = new google.maps.Marker({
+		var marker = new google.maps.Marker({
 			position: myLatLng,
-			map: mapHandler.map,
+			map: this.map,
 			icon: image
 		});
+        this.markers.push(marker);
 	},
+    clearMarkers : function() {
+        var index;
+        for(index in this.markers) {
+			this.markers[index].setMap(null);
+		}
+        this.markers.length = 0;
+    },
 	/**
 	 * Utilizado para cargar las direcciones desde la página.
 	 */
@@ -34,7 +38,7 @@ var mapHandler = {
 	},
 	handleAddressResults : function(results, status, element) {
 		if(status == 'OK') {
-			element.html(element.html() + mapHandler.getPrettyAddress(results[0]));
+			element.html(element.html() + this.getPrettyAddress(results[0]));
 		}
 		else {
 			element.html(element.html() + 'Address not found.');
