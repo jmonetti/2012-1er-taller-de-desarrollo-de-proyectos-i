@@ -11,7 +11,6 @@
         <script type="text/javascript">
             $(function(){
 	            mapHandler.init();
-                main.loadMarkers();
                 main.refresh();
             });
         </script>
@@ -19,14 +18,15 @@
 		<link href="css/default.css"  type="text/css" rel="Stylesheet" />
 	</head>
 	<body>
-		<form method="POST">
-			<input type="hidden" id="action" name="action" />
-			<div id="map_canvas" style="width:700px; height:500px"></div>
-			<div>
-				<h2>Current Emergencies</h2>
-				<ul id="emergencies">
-				</ul>
-			</div>
-		</form>
+        <div id="container_center">
+            <div id="container_map">
+		        <div id="map_canvas"></div>
+            </div>
+		    <div>
+			    <h2>Emergencias Actuales:</h2>
+			    <table id="emergencies">
+			    </table>
+		    </div>
+        </div>
 	</body>
 </html>

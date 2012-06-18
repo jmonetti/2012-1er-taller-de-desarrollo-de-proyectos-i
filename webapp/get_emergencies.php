@@ -1,21 +1,38 @@
 <?php
     include_once('includes/EmergenciesDA.php');
+
+    $fields = array(
+        'number' => 'Número',
+        'address' => 'Dirección'    
+    );
+
     $dataAccess = new EmergenciesDA();	
 	$cursor = $dataAccess->get_all();
-	// iterate through the results
-	if($cursor) {
-		$markers = '';
-		foreach ($cursor as $obj) {
-			$emergency = '('.$obj['lat'].', '.$obj['lng'].')';
-			if(isset($obj['number']))
-				$emergency .= $obj['number'];
-            if(isset($obj['address']))
-			    $emergency .= ': ' . $obj['address'];
-			?>
-			<li lat="<?php echo $obj['lat']; ?>" lng="<?php echo $obj['lng'] ?>">
-				<?php echo $emergency; ?>
-			</li>
-			<?php
-		}
-	}
+    $row_nb = 0;
+	if($cursor->count()) { ?>
+        <tr>
+            <?php foreach ($fields as $key => $value) {
+                echo '<th>' . $value . '</th>';
+            }?>
+        </tr>
+		<?php foreach ($cursor as $obj) {?>
+			<tr <?php if ($row_nb++ % 2) echo 'class=even'?>> 
+                <?php foreach ($fields as $key => $value) {
+                    if (!isset($obj[$key]))
+                        $obj[$key] = '';
+                    echo '<td>' . $obj[$key] . '</td>';
+                }?>
+			</tr>
+		<?php 
+        }
+    } else {
+        echo '<tr><td>No hay emergencias en este momento</td></tr>';
+    }
 ?>
+
+<script type="text/javascript">
+    mapHandler.clearMarkers();
+    <?php foreach ($cursor as $obj) {?>
+	    mapHandler.addMarker({ "lat": <?php echo $obj['lat']?>, "lng": <?php echo $obj['lng']?> });
+    <?php } ?>
+</script>
