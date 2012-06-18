@@ -1,4 +1,45 @@
 body {
-	font-family: Calibri;
+	font-family: "Trebuchet MS", "Helvetica", Arial;
 	font-size: 14px;
+    color: #ffffff;
+    background-image: url("/images/grid_bg.gif");
+}
+
+#container_center {
+    width: 80%;
+    margin: 5% 10%;
+
+}
+
+#map_canvas {
+    width: 100%;
+    height: 100%;
+}
+
+#container_map {
+    background-color: #000000;
+    height: 60%;
+    padding: 10px;
+}
+
+h2 {
+    color: #F2EFAB;
+}
+
+table {
+    border: 3px solid black;
+    width: 100%;
+}
+
+th {
+    background-color: #F2EFAB;
+    color: #376da0;
+}
+
+tr {
+    background-color: #376da0;
+}
+
+tr.even {
+    background-color: #6c8ba7;
 }

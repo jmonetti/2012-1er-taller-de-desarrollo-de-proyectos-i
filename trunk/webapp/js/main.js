@@ -21,20 +21,11 @@ var main = {
             complete: function(xhr_data, status) {
                 if (status == 'success')
                     $('#emergencies')[0].innerHTML = xhr_data.responseText;
+                var reponse = jQuery(xhr_data.responseText);
+                var reponseScript = reponse.filter("script");
+                jQuery.each(reponseScript, function(idx, val) { eval(val.text); } );
                 setTimeout(main.refresh, 5000);
-                main.loadMarkers();
             }
         });
-    },
-	/**
-	 * Agrega las emergencias actuales en el mapa.
-	 */
-	loadMarkers : function() {
-        mapHandler.clearMarkers();
-		$('#emergencies li').each(function(){
-			var lat = $(this).attr('lat');
-			var lng = $(this).attr('lng');
-			mapHandler.addMarker({ "lat" : lat, "lng" : lng });
-		});
-	}
+    }
 };
