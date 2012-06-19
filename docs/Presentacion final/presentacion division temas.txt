@@ -1,0 +1,29 @@
+Presentacion 
+	- Comercial
+		- Quienes somos
+		- Objetivo
+		- Nuestra vision
+		- 4 P y 5 C (Sacar del informe)
+		- Investigacion hecha al principio.
+			- Tamaño del mercado (expandir lo actual, dar referencias)
+			- Flujo de caja. (Describir en un slide por separado el por qué o una descripcion de cada curva)
+		- Marketing
+			- Acceso a la aplicación
+			- Promociones en paquetes familiares / empresariales.
+			- Medios de comunicación.
+		- Probar que es una mina de oro.
+			- Con pruebas.
+			- ¿Por qué ahora?
+			- ¿Por qué aca?
+			- Dar referencias estadísticas de robos, o quejas de los mismos por parte de la poblacion.
+			
+	- Tecnica.
+		- Arquitectura
+			- Describir cada componente (smartphone, aplicacionWeb, Servidor, policía...).
+		- Medios de obtención de la posición (lat y long) -> Primero GPS, sino, triangulacion, sino?
+		- Uso de internet, uso de comunicacion del celular para SMS (tenia un nombre, ¿cual era?)
+		- Mostrar funciones de aplicación gratuita (tipo los papers).
+		- Mostrar funciones de aplicación paga (tipo los papers).
+		- Describir funciones de la aplicación Web (sección clientes, sección monitoreo).
+	- Diferencia con el producto final del prototipo.
+	- Presentacion del prototipo.
