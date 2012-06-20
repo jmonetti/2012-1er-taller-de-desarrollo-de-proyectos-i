@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" measuredW="1618" measuredH="600" mockupW="1568" mockupH="581">
+<mockup version="1.0" skin="sketch" measuredW="1618" measuredH="706" mockupW="1568" mockupH="687">
   <controls>
     <control controlID="12" controlTypeID="__group__" x="50" y="28" w="400" h="510" measuredW="400" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
@@ -102,10 +102,11 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::TextArea" x="129" y="544" w="258" h="52" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::TextArea" x="113" y="544" w="274" h="140" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <borderColor>16777215</borderColor>
-        <text>Presiono%20el%20bot%F3n%20de%20menu%20del%20Panic%20Button%20para%20que%20se%20desplieguen%20las%20opciones</text>
+        <size>28</size>
+        <text>Presiono%20el%20bot%F3n%20de%20men%FA%20para%20que%20se%20desplieguen%20las%20opciones</text>
       </controlProperties>
     </control>
     <control controlID="33" controlTypeID="com.balsamiq.mockups::Arrow" x="395" y="565" w="98" h="10" measuredW="150" measuredH="100" zOrder="3" locked="false" isInGroup="-1">
@@ -115,9 +116,10 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::TextArea" x="501" y="548" w="258" h="52" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::TextArea" x="501" y="548" w="258" h="143" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <borderColor>16777215</borderColor>
+        <size>28</size>
         <text>Selecciono%20la%20Configuraci%F3n%20de%20se%F1al%20de%20emergencia.</text>
       </controlProperties>
     </control>
@@ -128,19 +130,20 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::TextArea" x="899" y="548" w="258" h="52" measuredW="200" measuredH="140" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::TextArea" x="899" y="548" w="258" h="143" measuredW="200" measuredH="140" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <borderColor>16777215</borderColor>
-        <text>Accedo%20a%20la%20pantalla%20de%20configuraci%F3n%20de%20Destinatario</text>
+        <size>28</size>
+        <text>Accedo%20a%20la%20pantalla%20de%20configuraci%F3n%20de%20Destinatarios</text>
       </controlProperties>
     </control>
-    <control controlID="41" controlTypeID="__group__" x="433" y="28" w="915" h="516" measuredW="915" measuredH="516" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="41" controlTypeID="__group__" x="433" y="26" w="915" h="518" measuredW="915" measuredH="518" zOrder="7" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
         <control controlID="0" controlTypeID="__group__" x="0" y="0" w="400" h="510" measuredW="400" measuredH="510" zOrder="0" locked="false" isInGroup="41">
           <groupChildrenDescriptors>
-            <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="84" y="195" w="230" h="-1" measuredW="215" measuredH="186" zOrder="0" locked="false" isInGroup="0">
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="84" y="197" w="230" h="-1" measuredW="215" measuredH="186" zOrder="0" locked="false" isInGroup="0">
               <controlProperties>
-                <text>-%20Borrar%20acceso%20directo%0AConfiguraci%F3n%20se%F1al%20de%20emergencia%0AConfiguracion%20Checkpoints%0AConfiguracion%20general%0AOn%20button%2C%20ON%0AOff%20button%2C%20OFF</text>
+                <text>-%20Borrar%20acceso%20directo%0AConfiguraci%F3n%20se%F1al%20de%20emergencia%0AConfiguraci%F3n%20Checkpoints%0AConfiguraci%F3n%20general%0AOn%20button%2C%20ON%0AOff%20button%2C%20OFF</text>
               </controlProperties>
             </control>
             <control controlID="1" controlTypeID="__group__" x="0" y="0" w="400" h="510" measuredW="400" measuredH="510" zOrder="1" locked="false" isInGroup="0">
@@ -151,7 +154,7 @@
                     <bgTransparent>true</bgTransparent>
                   </controlProperties>
                 </control>
-                <control controlID="1" controlTypeID="com.balsamiq.mockups::RoundButton" x="170" y="142" w="60" h="53" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="1">
+                <control controlID="1" controlTypeID="com.balsamiq.mockups::RoundButton" x="170" y="144" w="60" h="53" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="1">
                   <controlProperties>
                     <backgroundAlpha>1</backgroundAlpha>
                     <borderColor>0</borderColor>
@@ -164,14 +167,14 @@
             </control>
           </groupChildrenDescriptors>
         </control>
-        <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="95" y="387" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="41">
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="95" y="389" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="41">
           <controlProperties>
             <borderStyle>square</borderStyle>
             <color>15658734</color>
             <icon>UpFillTriangleIcon%7Cmedium</icon>
           </controlProperties>
         </control>
-        <control controlID="2" controlTypeID="__group__" x="390" y="6" w="400" h="510" measuredW="400" measuredH="510" zOrder="2" locked="false" isInGroup="41">
+        <control controlID="2" controlTypeID="__group__" x="390" y="8" w="400" h="510" measuredW="400" measuredH="510" zOrder="2" locked="false" isInGroup="41">
           <groupChildrenDescriptors>
             <control controlID="1" controlTypeID="__group__" x="0" y="0" w="400" h="510" measuredW="400" measuredH="510" zOrder="0" locked="false" isInGroup="2">
               <groupChildrenDescriptors>
@@ -185,14 +188,14 @@
             </control>
           </groupChildrenDescriptors>
         </control>
-        <control controlID="3" controlTypeID="com.balsamiq.mockups::Icon" x="484" y="387" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="3" locked="false" isInGroup="41">
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Icon" x="484" y="389" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="3" locked="false" isInGroup="41">
           <controlProperties>
             <borderStyle>square</borderStyle>
             <color>15658734</color>
             <icon>UpFillTriangleIcon%7Cmedium</icon>
           </controlProperties>
         </control>
-        <control controlID="4" controlTypeID="com.balsamiq.mockups::Icon" x="883" y="381" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="4" locked="false" isInGroup="41">
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Icon" x="883" y="383" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="4" locked="false" isInGroup="41">
           <controlProperties>
             <borderStyle>square</borderStyle>
             <color>15658734</color>
@@ -209,10 +212,11 @@
       </controlProperties>
     </control>
     <control controlID="44" controlTypeID="com.balsamiq.mockups::VerticalScrollBar" x="1512" y="166" w="-1" h="235" measuredW="16" measuredH="100" zOrder="9" locked="false" isInGroup="-1"/>
-    <control controlID="45" controlTypeID="com.balsamiq.mockups::TextArea" x="1285" y="535" w="268" h="52" measuredW="200" measuredH="140" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::TextArea" x="1285" y="535" w="279" h="171" measuredW="200" measuredH="140" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <borderColor>16777215</borderColor>
-        <text>Selecciono%20el%20contacto%20deseado%2C%20suponiendo%20que%20tambien%20tiene%20la%20aplicaci%F3n%20instalada.</text>
+        <size>28</size>
+        <text>Selecciono%20el%20contacto%20deseado%2C%20suponiendo%20que%20tambi%E9n%20tiene%20la%20aplicaci%F3n%20instalada.</text>
       </controlProperties>
     </control>
   </controls>
