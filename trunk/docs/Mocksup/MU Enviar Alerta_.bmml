@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" measuredW="1196" measuredH="753" mockupW="1146" mockupH="725">
+<mockup version="1.0" skin="sketch" measuredW="1196" measuredH="629" mockupW="1169" mockupH="601">
   <controls>
     <control controlID="12" controlTypeID="__group__" x="50" y="28" w="400" h="510" measuredW="400" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
@@ -30,11 +30,11 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::TextArea" x="113" y="544" w="274" h="209" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::TextArea" x="27" y="553" w="368" h="76" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
         <borderColor>16777215</borderColor>
         <size>28</size>
-        <text>Mantengo%20presionado%20el%20Panic%20Button%20por%203%20segundos%20para%20enviar%20la%20se%F1al%20de%20emergencia.</text>
+        <text>Mantengo%20presionado%20el%20Panic%20Button%20por%203%20segundos.</text>
       </controlProperties>
     </control>
     <control controlID="33" controlTypeID="com.balsamiq.mockups::Arrow" x="395" y="565" w="98" h="10" measuredW="150" measuredH="100" zOrder="2" locked="false" isInGroup="-1">
@@ -44,7 +44,7 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::TextArea" x="508" y="553" w="240" h="118" measuredW="200" measuredH="140" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::TextArea" x="508" y="553" w="240" h="76" measuredW="200" measuredH="140" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <borderColor>16777215</borderColor>
         <size>28</size>
@@ -58,7 +58,7 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::TextArea" x="899" y="548" w="195" h="107" measuredW="200" measuredH="140" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::TextArea" x="899" y="548" w="195" h="73" measuredW="200" measuredH="140" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <borderColor>16777215</borderColor>
         <size>28</size>
@@ -87,7 +87,7 @@
                     <text/>
                   </controlProperties>
                 </control>
-                <control controlID="3" controlTypeID="com.balsamiq.mockups::TextArea" x="107" y="231" w="187" h="29" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="5">
+                <control controlID="3" controlTypeID="com.balsamiq.mockups::TextArea" x="107" y="231" w="191" h="29" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="5">
                   <controlProperties>
                     <text>Enviando%20Se%F1al%20de%20Emergencia</text>
                   </controlProperties>
