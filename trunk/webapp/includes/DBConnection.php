@@ -10,7 +10,7 @@ class DBConnection {
 		else
 			$mongo = new Mongo();
 
-		DBConnection::$db = $mongo->urban_security;
+		DBConnection::$db = $mongo->seguridad;
 	}
 	
 	private static function db() {
