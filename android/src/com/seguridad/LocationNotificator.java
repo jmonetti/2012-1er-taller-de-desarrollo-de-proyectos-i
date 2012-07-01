@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
@@ -26,15 +29,16 @@ import android.os.Bundle;
  * to the destination server
  */
 public class LocationNotificator implements LocationListener {
-
-	private String phoneNumber;
+	private static String DATE_FORMAT = "dd/MM/yyyy hh:mm:ss";
+	private String identifier;
 	private EmergencyActivator context;
 	private Location currentLocation;
+	private DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
 
-	public LocationNotificator(EmergencyActivator context, String phoneNumber) {
+	public LocationNotificator(EmergencyActivator context, String identifier) {
 		this.context = context;
 
-		this.phoneNumber = phoneNumber;
+		this.identifier = identifier;
 	}
 
 	public void onLocationChanged(Location location) {
@@ -48,11 +52,17 @@ public class LocationNotificator implements LocationListener {
 		}
 	}
 
-	private boolean updateLocation(Location location) {
+	/**
+	 * Indicate whether the current location should be updated
+	 * with the new one. 
+	 * @param newLocation
+	 * @return
+	 */
+	private boolean updateLocation(Location newLocation) {
 		if (
 				this.currentLocation == null || 
-				!location.equals(this.currentLocation) || 
-				this.currentLocation.getAccuracy() < location.getAccuracy()
+				!newLocation.equals(this.currentLocation) || 
+				this.currentLocation.getAccuracy() < newLocation.getAccuracy()
 			)
 				return true;
 
@@ -86,9 +96,11 @@ public class LocationNotificator implements LocationListener {
 
 		JSONObject json = new JSONObject();
 		try {
-			json.put("number", this.phoneNumber);
+			json.put("identifier", this.identifier);
 			json.put("lat", Double.toString(location.getLatitude()));
 			json.put("lng", Double.toString(location.getLongitude()));
+			json.put("location-provider", location.getProvider());
+			json.put("date", dateFormat.format(new Date()));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

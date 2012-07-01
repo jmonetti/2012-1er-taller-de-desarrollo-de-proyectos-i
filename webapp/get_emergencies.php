@@ -2,8 +2,8 @@
     include_once('includes/EmergenciesDA.php');
 
     $fields = array(
-        'number' => 'Número',
-        'address' => 'Dirección'    
+        'identifier' => 'Identificador',
+        'address' => 'Dirección'
     );
 
     $dataAccess = new EmergenciesDA();	
@@ -16,7 +16,7 @@
             }?>
         </tr>
 		<?php foreach ($cursor as $obj) {?>
-			<tr <?php if ($row_nb++ % 2) echo 'class=even'?>> 
+			<tr <?php if ($row_nb++ % 2) echo 'class=even'?>>
                 <?php foreach ($fields as $key => $value) {
                     if (!isset($obj[$key]))
                         $obj[$key] = '';

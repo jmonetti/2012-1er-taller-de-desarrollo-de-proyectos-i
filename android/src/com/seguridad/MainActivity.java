@@ -4,20 +4,26 @@ import java.util.LinkedList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.seguridad.settings.SettingsActivity;
+
 public class MainActivity extends Activity implements EmergencyActivator {
 	private LocationManager locationManager;
-	private TelephonyManager telephonyManager;
+	private Vibrator vibrator; 
 
 	private List<Integer> resources;
 	private LocationNotificator locationNotificator;
@@ -42,14 +48,13 @@ public class MainActivity extends Activity implements EmergencyActivator {
 		this.resources.add(R.drawable.red_button);
 		this.resources.add(R.drawable.red_button_on);
 
-		this.telephonyManager = (TelephonyManager) this
-				.getSystemService(Context.TELEPHONY_SERVICE);
-
 		this.locationManager = (LocationManager) this
 				.getSystemService(Context.LOCATION_SERVICE);
+		
+		this.vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 
 		this.locationNotificator = new LocationNotificator(this,
-				this.telephonyManager.getDeviceId());
+				Installation.id(this));
 	}
 
 	public void sendEmergencyCall() {
@@ -63,10 +68,11 @@ public class MainActivity extends Activity implements EmergencyActivator {
 		this.locationManager.requestLocationUpdates(
 				LocationManager.NETWORK_PROVIDER, 0, 0,
 				this.locationNotificator);
-		
+
 		this.locationManager.requestLocationUpdates(
-				LocationManager.GPS_PROVIDER, 0, 0,
-				this.locationNotificator);
+				LocationManager.GPS_PROVIDER, 0, 0, this.locationNotificator);
+		
+		this.vibrator.vibrate(250);
 	}
 
 	/**
@@ -74,6 +80,7 @@ public class MainActivity extends Activity implements EmergencyActivator {
 	 * animation.
 	 */
 	public void sentEmergencyCall() {
+        this.vibrator.vibrate(new long[] {0, 250, 250, 250} , -1);
 		// Confirm signal sent
 		String msg = this.getString(R.string.emergency_signal_sent);
 		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
@@ -94,5 +101,39 @@ public class MainActivity extends Activity implements EmergencyActivator {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		 switch (item.getItemId()) {
+	        case R.id.settings:
+	            openSettings();
+	            return true;
+	        case R.id.help:
+	            showHelp();
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+
+	private void showHelp() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage(R.string.help_message);
+		builder.setPositiveButton(R.string.ok, 
+				new DialogInterface.OnClickListener() {
+		           public void onClick(DialogInterface dialog, int id) {
+		        	   dialog.cancel();
+		           }
+		       });
+		builder.create().show();
+	}
+
+	/**
+	 * Inicia la actividad de configuración.
+	 */
+	private void openSettings() {
+		Intent intent = new Intent(this, SettingsActivity.class);
+		startActivity(intent);
 	}
 }
