@@ -23,7 +23,7 @@ import com.seguridad.settings.SettingsActivity;
 
 public class MainActivity extends Activity implements EmergencyActivator {
 	private LocationManager locationManager;
-	private Vibrator vibrator; 
+	private Vibrator vibrator;
 
 	private List<Integer> resources;
 	private LocationNotificator locationNotificator;
@@ -50,8 +50,8 @@ public class MainActivity extends Activity implements EmergencyActivator {
 
 		this.locationManager = (LocationManager) this
 				.getSystemService(Context.LOCATION_SERVICE);
-		
-		this.vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+
+		this.vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
 		this.locationNotificator = new LocationNotificator(this,
 				Installation.id(this));
@@ -71,7 +71,7 @@ public class MainActivity extends Activity implements EmergencyActivator {
 
 		this.locationManager.requestLocationUpdates(
 				LocationManager.GPS_PROVIDER, 0, 0, this.locationNotificator);
-		
+
 		this.vibrator.vibrate(250);
 	}
 
@@ -80,7 +80,7 @@ public class MainActivity extends Activity implements EmergencyActivator {
 	 * animation.
 	 */
 	public void sentEmergencyCall() {
-        this.vibrator.vibrate(new long[] {0, 250, 250, 250} , -1);
+		this.vibrator.vibrate(new long[] { 0, 250, 250, 250 }, -1);
 		// Confirm signal sent
 		String msg = this.getString(R.string.emergency_signal_sent);
 		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
@@ -102,30 +102,30 @@ public class MainActivity extends Activity implements EmergencyActivator {
 		inflater.inflate(R.menu.menu, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		 switch (item.getItemId()) {
-	        case R.id.settings:
-	            openSettings();
-	            return true;
-	        case R.id.help:
-	            showHelp();
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
+		switch (item.getItemId()) {
+		case R.id.settings:
+			openSettings();
+			return true;
+		case R.id.help:
+			showHelp();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 	private void showHelp() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setMessage(R.string.help_message);
-		builder.setPositiveButton(R.string.ok, 
+		builder.setPositiveButton(R.string.ok,
 				new DialogInterface.OnClickListener() {
-		           public void onClick(DialogInterface dialog, int id) {
-		        	   dialog.cancel();
-		           }
-		       });
+					public void onClick(DialogInterface dialog, int id) {
+						dialog.cancel();
+					}
+				});
 		builder.create().show();
 	}
 
