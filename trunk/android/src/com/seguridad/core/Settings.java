@@ -9,6 +9,8 @@ import com.seguridad.R;
 public class Settings {
 	private static Context context;
 	public static final Settings instance = new Settings();
+	public static final long LOCATION_NETWORK_UPDATE_MIN_INTERVAL = 30000; // 30 secs
+	public static final long LOCATION_GPS_UPDATE_MIN_INTERVAL = 60000; // 60 secs
 	
 	private String emergencyServerUrl;
 	private String emergencyNumber;
@@ -31,7 +33,7 @@ public class Settings {
 		SharedPreferences preferences = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		String id = context.getString(R.string.additional_information);
-		String info = preferences.getString(id, "").replace("\n", " - ");
+		String info = preferences.getString(id, "");
 		return info;
 	}
 }
