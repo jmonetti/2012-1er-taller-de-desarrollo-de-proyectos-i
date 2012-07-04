@@ -20,11 +20,10 @@
 	<div id="main">
 		<?php include('header.php'); ?>
 		<div id="content">
-			<h2>Emergencias Actuales</h2>
-			<table id="emergencies"></table>
-			<div id="container_map">
-				<div id="map_canvas"></div>
-			</div>
+			<h2>Log-in</h2>
+			<form>
+			
+			</form>
 			<div class="clear"></div>
 		</div>
 		<?php include('footer.php'); ?>
