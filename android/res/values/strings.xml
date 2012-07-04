@@ -10,4 +10,5 @@
     <string name="emergency_signal_sent">Señal de Emergencia Enviada </string>
     <string name="help_message">Para enviar una Señal de Emergencia, mantenga el botón apretado hasta que aparezca un mensaje o el teléfono vibre.</string>
     <string name="ok">Aceptar</string>
+    <string name="cancel">Cancelar</string>    
 </resources>

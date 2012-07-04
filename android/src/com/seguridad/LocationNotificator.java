@@ -20,6 +20,8 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ import android.os.Bundle;
  * to the destination server
  */
 public class LocationNotificator implements LocationListener {
+	private static final String USER_INFORMATION = "UserInformation";
 	private static String DATE_FORMAT = "dd/MM/yyyy hh:mm:ss";
 	private String identifier;
 	private EmergencyActivator context;
@@ -46,42 +49,41 @@ public class LocationNotificator implements LocationListener {
 		if (this.updateLocation(location)) {
 			this.currentLocation = location;
 
-			if (this.sendEmergencyData(this.currentLocation)) {
+			if (this.sendEmergencyData(this.currentLocation))
 				this.context.sentEmergencyCall();
-			}
 		}
 	}
 
+	private String getUserInformation() {
+		SharedPreferences preferences = ((Activity) this.context)
+				.getPreferences(Activity.MODE_PRIVATE);
+		return preferences.getString(USER_INFORMATION, "");
+
+	}
+
 	/**
-	 * Indicate whether the current location should be updated
-	 * with the new one. 
+	 * Indicate whether the current location should be updated with the new one.
+	 * 
 	 * @param newLocation
 	 * @return
 	 */
 	private boolean updateLocation(Location newLocation) {
-		if (
-				this.currentLocation == null || 
-				!newLocation.equals(this.currentLocation) || 
-				this.currentLocation.getAccuracy() < newLocation.getAccuracy()
-			)
-				return true;
+		if (this.currentLocation == null
+				|| !newLocation.equals(this.currentLocation)
+				|| this.currentLocation.getAccuracy() < newLocation
+						.getAccuracy())
+			return true;
 
 		return false;
 	}
 
 	public void onProviderDisabled(String provider) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void onProviderEnabled(String provider) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void onStatusChanged(String provider, int status, Bundle extras) {
-		// TODO Auto-generated method stub
-
 	}
 
 	/**
@@ -101,6 +103,7 @@ public class LocationNotificator implements LocationListener {
 			json.put("lng", Double.toString(location.getLongitude()));
 			json.put("location-provider", location.getProvider());
 			json.put("date", dateFormat.format(new Date()));
+			json.put("info", this.getUserInformation());
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
