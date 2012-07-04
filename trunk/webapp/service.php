@@ -8,11 +8,17 @@ if(array_key_exists("data", $_REQUEST)) {
 	$json = $_REQUEST["data"];
 	$emergency = json_decode ($json, true);
     if ( is_numeric($emergency['lat']) && is_numeric($emergency['lng'])) {
-	    // Obtener dirección
+	    // Obtener direcciÃ³n
 	    $locationAddress = GeoCoding::get_address($emergency['lat'], $emergency['lng']);
 	    $emergency['address'] = $locationAddress; 
 
 	    $EmergenciesDA->add($emergency);
+
+	    echo "OK";
+    }
+    else
+    {
+    	echo "Error";    	
     }
 }
 ?>

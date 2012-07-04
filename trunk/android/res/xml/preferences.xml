@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:key="@string/app_name">
+    <EditTextPreference android:title="@string/additional_information" android:key="@string/additional_information" android:dialogTitle="@string/additional_information" android:selectable="true" android:enabled="true"/>
+    
+
+</PreferenceScreen>

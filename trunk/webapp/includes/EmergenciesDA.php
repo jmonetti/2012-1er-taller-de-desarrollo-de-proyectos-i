@@ -30,4 +30,14 @@ class EmergenciesDA {
 	public function get_all() {
 		return $this->emergencies->find();
 	}
+	
+	public function find_by_id($id) {
+		$criteria = array("identifier" => $id);
+		$cursor = $this->emergencies->find($criteria);
+
+		if($cursor->count())
+			return $cursor->getNext();
+
+		return null;
+	}
 }
