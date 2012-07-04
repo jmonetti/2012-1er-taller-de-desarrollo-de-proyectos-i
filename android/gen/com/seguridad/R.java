@@ -37,10 +37,10 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int cancel=0x7f050009;
         public static final int emergency=0x7f050001;
-        /**  string name="emergency_server_url">http://seguridad-jfacorro.dotcloud.com/service.php</string 
-         */
         public static final int emergency_server_url=0x7f050003;
         public static final int emergency_signal_sent=0x7f050006;
+        /**  string name="emergency_server_url">http://192.168.0.13/service.php</string
+         */
         public static final int help=0x7f050004;
         public static final int help_message=0x7f050007;
         public static final int ok=0x7f050008;
