@@ -27,6 +27,9 @@
             android:name=".settings.SettingsActivity"
             android:label="@string/settings">
         </activity>
+        <activity
+            android:name=".settings.UserInformationActivity"
+            android:label="@string/settings">
+        </activity>
     </application>
-
 </manifest>
