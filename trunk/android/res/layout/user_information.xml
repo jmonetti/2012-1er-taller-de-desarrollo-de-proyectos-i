@@ -11,14 +11,9 @@
         android:inputType="text|textMultiLine"
         android:layout_above="@id/layoutButtons"
         />
-    <RelativeLayout
-        android:id="@+id/layoutButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal" >
-
-        <LinearLayout
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/layoutButtons"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
@@ -36,8 +31,5 @@
 	            android:layout_height="wrap_content"
 	            android:layout_weight="0.5"
 	            android:text="@string/cancel" />
-
         </LinearLayout>
-
-    </RelativeLayout>
 </RelativeLayout>
