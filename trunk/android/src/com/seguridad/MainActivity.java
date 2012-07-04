@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.Menu;
@@ -19,10 +20,13 @@ import android.view.View.OnLongClickListener;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.seguridad.core.EmergencyActivator;
+import com.seguridad.core.Installation;
+import com.seguridad.core.LocationNotificator;
+import com.seguridad.core.Settings;
 import com.seguridad.settings.SettingsActivity;
 
 public class MainActivity extends Activity implements EmergencyActivator {
-	private LocationManager locationManager;
 	private Vibrator vibrator;
 
 	private List<Integer> resources;
@@ -39,25 +43,25 @@ public class MainActivity extends Activity implements EmergencyActivator {
 		this.btnEmergency = (ImageButton) this.findViewById(R.id.btnEmergency);
 		this.btnEmergency.setOnLongClickListener(new OnLongClickListener() {
 			public boolean onLongClick(View v) {
-				sendEmergencyCall();
+				sendEmergencyNotification();
 				return true;
 			}
 		});
-
+		
 		this.resources = new LinkedList<Integer>();
 		this.resources.add(R.drawable.red_button);
 		this.resources.add(R.drawable.red_button_on);
 
-		this.locationManager = (LocationManager) this
-				.getSystemService(Context.LOCATION_SERVICE);
-
 		this.vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-		this.locationNotificator = new LocationNotificator(this,
-				Installation.id(this));
+		Settings.init(this);
+		this.locationNotificator = new LocationNotificator(this);
 	}
 
-	public void sendEmergencyCall() {
+	/**
+	 * Send notification
+	 */
+	public void sendEmergencyNotification() {
 		Toast.makeText(this, R.string.sending_emergency_call,
 				Toast.LENGTH_SHORT).show();
 
@@ -65,12 +69,7 @@ public class MainActivity extends Activity implements EmergencyActivator {
 		this.btnEmergency.startAnimation(new ImageButtonAnimation(btnEmergency,
 				this.resources, 500));
 
-		this.locationManager.requestLocationUpdates(
-				LocationManager.NETWORK_PROVIDER, 0, 0,
-				this.locationNotificator);
-
-		this.locationManager.requestLocationUpdates(
-				LocationManager.GPS_PROVIDER, 0, 0, this.locationNotificator);
+		this.locationNotificator.start(Installation.id(this));
 
 		this.vibrator.vibrate(250);
 	}
@@ -85,11 +84,10 @@ public class MainActivity extends Activity implements EmergencyActivator {
 		String msg = this.getString(R.string.emergency_signal_sent);
 		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 
-		// Unregister location listener
-		this.locationManager.removeUpdates(this.locationNotificator);
-
 		this.btnEmergency.clearAnimation();
 		this.btnEmergency.setClickable(true);
+		
+		this.locationNotificator.stop();
 	}
 
 	public String getEmergencyServerUrl() {
@@ -107,7 +105,7 @@ public class MainActivity extends Activity implements EmergencyActivator {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.settings:
-			openSettings();
+			startActivity(new Intent(this, SettingsActivity.class));
 			return true;
 		case R.id.help:
 			showHelp();
@@ -130,10 +128,19 @@ public class MainActivity extends Activity implements EmergencyActivator {
 	}
 
 	/**
-	 * Inicia la actividad de configuración.
+	 * Verifies if the emergency server is active
+	 * 
+	 * @return
 	 */
-	private void openSettings() {
-		Intent intent = new Intent(this, SettingsActivity.class);
-		startActivity(intent);
+	public boolean isOnline() {
+		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+		return cm.getActiveNetworkInfo() != null
+				&& cm.getActiveNetworkInfo().isConnectedOrConnecting();
+	}
+
+	public LocationManager getLocationManager() {
+		return (LocationManager) this
+				.getSystemService(Context.LOCATION_SERVICE);
 	}
 }
