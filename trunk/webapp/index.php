@@ -1,32 +1,34 @@
 <html>
-	<head>
-		<meta http-equiv="cache-control" content="no-cache">
-		<title>Seguridad</title>
-		<script type="text/javascript" 
-			src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAJ-lN0BVnxuQ06N3YUyFS_iUA8kuoFYVI&sensor=false">
+<head>
+<meta http-equiv="cache-control" content="no-cache">
+<title>Seguridad</title>
+<script type="text/javascript"
+	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAJ-lN0BVnxuQ06N3YUyFS_iUA8kuoFYVI&sensor=false">
 		</script>
-		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="js/maps.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/maps.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
             $(function(){
 	            mapHandler.init();
                 main.refresh();
             });
         </script>
 
-		<link href="css/default.css"  type="text/css" rel="Stylesheet" />
-	</head>
-	<body>
-        <div id="container_center">
-            <div id="container_map">
-		        <div id="map_canvas"></div>
-            </div>
-		    <div>
-			    <h2>Emergencias Actuales:</h2>
-			    <table id="emergencies">
-			    </table>
-		    </div>
-        </div>
-	</body>
+<link href="css/default.css" type="text/css" rel="Stylesheet" />
+</head>
+<body>
+	<div id="main">
+		<?php include('header.php'); ?>
+		<div id="content">
+			<h2>Emergencias Actuales</h2>
+			<table id="emergencies" border="1" cellspacing="0"></table>
+			<div id="container_map">
+				<div id="map_canvas"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<?php include('footer.php'); ?>
+	</div>
+</body>
 </html>
