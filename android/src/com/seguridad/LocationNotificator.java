@@ -26,12 +26,13 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 
+import com.seguridad.settings.SettingsActivity;
+
 /*
  * Gets the location updates and sends them 
  * to the destination server
  */
 public class LocationNotificator implements LocationListener {
-	private static final String USER_INFORMATION = "UserInformation";
 	private static String DATE_FORMAT = "dd/MM/yyyy hh:mm:ss";
 	private String identifier;
 	private EmergencyActivator context;
@@ -57,7 +58,7 @@ public class LocationNotificator implements LocationListener {
 	private String getUserInformation() {
 		SharedPreferences preferences = ((Activity) this.context)
 				.getPreferences(Activity.MODE_PRIVATE);
-		return preferences.getString(USER_INFORMATION, "");
+		return preferences.getString(SettingsActivity.USER_INFORMATION, "");
 
 	}
 
