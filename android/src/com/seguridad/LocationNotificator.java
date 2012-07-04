@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -17,6 +19,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -25,19 +28,22 @@ import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
-
-import com.seguridad.settings.SettingsActivity;
+import android.preference.PreferenceManager;
 
 /*
  * Gets the location updates and sends them 
  * to the destination server
  */
 public class LocationNotificator implements LocationListener {
+	public static final String OK = "OK";
+
 	private static String DATE_FORMAT = "dd/MM/yyyy hh:mm:ss";
-	private String identifier;
-	private EmergencyActivator context;
-	private Location currentLocation;
 	private DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+
+	private EmergencyActivator context;
+
+	private String identifier;
+	private Location currentLocation;
 
 	public LocationNotificator(EmergencyActivator context, String identifier) {
 		this.context = context;
@@ -46,20 +52,24 @@ public class LocationNotificator implements LocationListener {
 	}
 
 	public void onLocationChanged(Location location) {
-		System.out.println(location.getProvider());
 		if (this.updateLocation(location)) {
 			this.currentLocation = location;
 
 			if (this.sendEmergencyData(this.currentLocation))
 				this.context.sentEmergencyCall();
+			else {
+				// TODO: Seguir tratando o enviar por SMS
+			}
 		}
 	}
 
 	private String getUserInformation() {
-		SharedPreferences preferences = ((Activity) this.context)
-				.getPreferences(Activity.MODE_PRIVATE);
-		return preferences.getString(SettingsActivity.USER_INFORMATION, "");
-
+		Activity activity = (Activity) this.context;
+		SharedPreferences preferences = PreferenceManager
+				.getDefaultSharedPreferences(activity);
+		String id = activity.getString(R.string.additional_information);
+		String info = preferences.getString(id, "").replace("\n", " - ");
+		return info;
 	}
 
 	/**
@@ -115,13 +125,13 @@ public class LocationNotificator implements LocationListener {
 			nameValuePairs.add(new BasicNameValuePair("data", json.toString()));
 			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-			// Execute HTTP Post Request
-			// HttpResponse response = httpClient.execute(httpPost);
+			HttpResponse response = httpClient.execute(httpPost);
+			HttpEntity entity = response.getEntity();
+			String result = "";
+			if (entity != null)
+				result = EntityUtils.toString(entity);
 
-			// TODO: verificar el response code
-			httpClient.execute(httpPost);
-
-			return true;
+			return result.equals(OK);
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

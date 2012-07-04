@@ -33,6 +33,7 @@ public final class R {
         public static final int menu=0x7f060000;
     }
     public static final class string {
+        public static final int additional_information=0x7f05000a;
         public static final int app_name=0x7f050000;
         public static final int cancel=0x7f050009;
         public static final int emergency=0x7f050001;

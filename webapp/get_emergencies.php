@@ -2,8 +2,9 @@
     include_once('includes/EmergenciesDA.php');
 
     $fields = array(
-        'identifier' => 'Identificador',
-        'address' => 'Dirección'
+    	'date' => 'Fecha',
+        'address' => 'Ubicación',
+    	'info' => 'Información'
     );
 
     $dataAccess = new EmergenciesDA();	
