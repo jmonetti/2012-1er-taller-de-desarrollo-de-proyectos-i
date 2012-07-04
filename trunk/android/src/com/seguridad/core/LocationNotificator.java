@@ -66,14 +66,15 @@ public class LocationNotificator implements LocationListener {
 	public void onLocationChanged(Location location) {
 		if (this.currentNotification.updateLocation(location)) {
 			boolean sent = false;
+			String data = this.currentNotification.getJson().toString();
 
 			if (this.activator.isOnline())
-				sent = this.sendHTTP(this.currentNotification);
+				sent = sendHTTP(data);
 
 			if (!sent) {
 				Toast.makeText((Context) this.activator, "Not connected",
 						Toast.LENGTH_LONG).show();
-				sent = this.sendSMS(this.currentNotification);
+				sent = sendSMS(data);
 			}
 
 			if (sent)
@@ -96,7 +97,7 @@ public class LocationNotificator implements LocationListener {
 	 * @param location
 	 * @return true if the signal was sent successfully, false otherwise.
 	 */
-	protected boolean sendHTTP(EmergencyNotification notification) {
+	public static boolean sendHTTP(String data) {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpPost httpPost = new HttpPost(
 				Settings.instance.getEmergencyServerUrl());
@@ -104,8 +105,7 @@ public class LocationNotificator implements LocationListener {
 		try {
 			// Add your data
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-			nameValuePairs.add(new BasicNameValuePair("data", notification
-					.getJson().toString()));
+			nameValuePairs.add(new BasicNameValuePair("data", data));
 			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
 			HttpResponse response = httpClient.execute(httpPost);
@@ -130,11 +130,10 @@ public class LocationNotificator implements LocationListener {
 	 * @param location
 	 * @return true if the signal was sent successfully, false otherwise.
 	 */
-	protected boolean sendSMS(EmergencyNotification notification) {
+	public static boolean sendSMS(String data) {
 		SmsManager smsManager = SmsManager.getDefault();
 
-		ArrayList<String> parts = smsManager.divideMessage(notification
-				.getJson().toString());
+		ArrayList<String> parts = smsManager.divideMessage(data);
 
 		smsManager
 		.sendMultipartTextMessage(
