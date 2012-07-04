@@ -1,4 +1,4 @@
-package com.seguridad;
+package com.seguridad.core;
 
 import java.io.File;
 import java.io.FileOutputStream;

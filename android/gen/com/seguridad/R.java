@@ -37,6 +37,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int cancel=0x7f050009;
         public static final int emergency=0x7f050001;
+        public static final int emergency_number=0x7f05000b;
         public static final int emergency_server_url=0x7f050003;
         public static final int emergency_signal_sent=0x7f050006;
         /**  string name="emergency_server_url">http://192.168.0.13/service.php</string
