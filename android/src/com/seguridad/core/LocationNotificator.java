@@ -49,10 +49,10 @@ public class LocationNotificator implements LocationListener {
 		this.currentNotification = new EmergencyNotification(appId);
 
 		this.locationManager.requestLocationUpdates(
-				LocationManager.NETWORK_PROVIDER, 0, 0, this);
+				LocationManager.NETWORK_PROVIDER, Settings.LOCATION_NETWORK_UPDATE_MIN_INTERVAL, 0, this);
 
 		this.locationManager.requestLocationUpdates(
-				LocationManager.GPS_PROVIDER, 0, 0, this);
+				LocationManager.GPS_PROVIDER, Settings.LOCATION_GPS_UPDATE_MIN_INTERVAL, 0, this);
 	}
 
 	/**
