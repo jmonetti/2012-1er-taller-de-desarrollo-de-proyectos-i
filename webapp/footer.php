@@ -4,7 +4,7 @@
 		</li>
 		<li><a href="info.php">Informacion Util</a>
 		</li>
-		<li><a href="foro.php">Foro</a>
+		<li><a href="forum.php">Foro</a>
 		</li>
 		<li><a href="faqs.php">FAQs</a>
 		</li>
