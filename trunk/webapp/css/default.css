@@ -8,7 +8,8 @@ http://colorschemedesigner.com/#0031Aeesco0J7
 }
 
 body {
-	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode",
+		"Lucida Sans", Tahoma, sans-serif;
 	font-size: 13px;
 	color: #ffffff;
 	background-image: url("/images/grid_bg.gif");
@@ -84,7 +85,7 @@ body {
 #menu li a:hover {
 	background-color: rgba(41, 117, 76, 0.5);
 	/*background-color: #29754C;*/
-	color: #FFF; 
+	color: #FFF;
 }
 
 #menu li.login {
@@ -123,7 +124,7 @@ body {
 }
 
 #content {
-	padding: 10px;
+	padding: 12px;
 	background: #FFF;
 	margin: 10px 0px;
 }
@@ -141,26 +142,37 @@ body {
 }
 
 h2 {
-	color: #8EC46D;
-	margin: 10px 0px;
+	font-size: 16px;
+	color: #29754C;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #29754C;
 }
 
 table {
-	font-size: 13px;
-	border: 1px solid #CCC;
+	border-collapse: collapse;
+	border: 0px solid #CCC;
+	font-size: 12px;
 	float: left;
-	width: 600px;
+	width: 590px;
+	color: #333;
+}
+
+table td {
+	padding: 3px;
 }
 
 th {
+	padding: 2px 5px;
 	background-color: #CCC;
-	color: #000;
+	text-align: left;
 }
 
 tr {
-	background-color: #376da0;
+	background-color: #EEE;
+	border-bottom: #CCC solid 1px;
 }
 
 tr.even {
-	background-color: #6c8ba7;
+	background-color: #FFF;
 }

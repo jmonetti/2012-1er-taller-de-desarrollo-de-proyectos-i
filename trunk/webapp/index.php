@@ -22,7 +22,7 @@
 		<?php include('header.php'); ?>
 		<div id="content">
 			<h2>Emergencias Actuales</h2>
-			<table id="emergencies" border="1" cellspacing="0"></table>
+			<table id="emergencies"></table>
 			<div id="container_map">
 				<div id="map_canvas"></div>
 			</div>
