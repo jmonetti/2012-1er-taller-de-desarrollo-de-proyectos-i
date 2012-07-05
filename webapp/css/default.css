@@ -12,7 +12,7 @@ body {
 		"Lucida Sans", Tahoma, sans-serif;
 	font-size: 13px;
 	color: #000;
-	background-image: url("/images/grid_bg.gif");
+	background-image: url("../images/grid_bg.gif");
 }
 
 .clear {
