@@ -1,7 +1,8 @@
+<?php include_once('includes/Configuration.php'); ?>
 <html>
 <head>
 <meta http-equiv="cache-control" content="no-cache">
-<title>Seguridad - Backend</title>
+<title><?php echo Configuration::$Title; ?> - Backend</title>
 <script type="text/javascript"
 	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAJ-lN0BVnxuQ06N3YUyFS_iUA8kuoFYVI&sensor=false">
 		</script>
