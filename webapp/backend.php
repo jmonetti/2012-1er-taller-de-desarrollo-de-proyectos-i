@@ -22,7 +22,9 @@
 			<h2>Backend</h2>
 			<form method="POST">
 				<div>
+					<h2>Eliminar todas</h2>
 					<input type="button" name="btnReset" value="Reset all" action="reset.php" />
+					<h2>Ingresar Coordenadas</h2>
 					<div>
 						Lat: <input type="text" name="lat" value="" />						
 						Long: <input type="text" name="lng" value="" />
