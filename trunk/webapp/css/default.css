@@ -127,6 +127,7 @@ body {
 	padding: 12px;
 	background: #FFF;
 	margin: 10px 0px;
+	min-height: 300px;
 }
 
 #map_canvas {
